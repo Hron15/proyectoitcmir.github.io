@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conoce el Proyecto MIR</title>
+    <link rel="shortcut icon" href="./images/Favicon.jpg" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #d8e8d5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .botones-header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .botones-header button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .botones-header button:hover {
+            background-color: #45a049;
+        }
+
+        .titulo-principal {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contenedor {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .seccion {
+            margin-bottom: 20px;
+        }
+
+        .titulo {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .contenido {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contenido.visible {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado con botones de registro e inicio de sesión -->
+    <div class="header">
+        <div class="botones-header" id="auth-buttons">
+            <button onclick="location.href='index5.html'">Iniciar Sesión</button>
+            <button onclick="location.href='index.html'">Registrarse</button>
+        </div>
+    </div>
+
+    <!-- Título principal -->
+    <h1 class="titulo-principal">Conoce el Proyecto MIR</h1>
+
+    <!-- Contenedor principal de información -->
+    <div class="contenedor">
+        <div class="seccion">
+            <div class="titulo" onclick="toggleInformacion('personero')">
+                <h2>¿Qué es un Personero?</h2>
+                <img id="icono-personero" src="./images/low-vision.svg" alt="Ícono de baja visión">
+            </div>
+            <div id="contenido-personero" class="contenido">
+                <p>El personero estudiantil es un estudiante que cursa el último grado de bachillerato elegido democráticamente por sus compañeros para ser el representante en todas las decisiones y en poner la cara por sus derechos en el gobierno escolar. Pero su papel va más allá, pues tiene las siguientes funciones:</p>
+                <ul>
+                    <li>Representación ante las Autoridades: Canaliza las necesidades y preocupaciones de los estudiantes ante las autoridades escolares, fomentando el diálogo y la colaboración.</li>
+                    <li>Participación en Órganos de Gobierno: Tiene derecho a participar en órganos clave como el Consejo Directivo, donde puede proponer ideas y soluciones para mejorar la calidad educativa y el bienestar estudiantil.</li>
+                    <li>Promotor de la Cultura Democrática: Inspira y fomenta la participación estudiantil en la toma de decisiones y en la resolución de conflictos, fortaleciendo así la democracia dentro del colegio.</li>
+                    <li>Defensa de los Derechos Estudiantiles: Velar por el cumplimiento de los derechos de los estudiantes y actuar ante cualquier situación que los ponga en riesgo.</li>
+                    <li>Canalización y Evaluación de Quejas: Recibe y evalúa las quejas de los estudiantes, buscando soluciones que beneficien a toda la comunidad educativa.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <div class="titulo" onclick="toggleInformacion('contralor')">
+                <h2>¿Qué es un Contralor?</h2>
+                <img id="icono-contralor" src="./images/low-vision.svg" alt="Ícono de baja visión">
+            </div>
+            <div id="contenido-contralor" class="contenido">
+                <p>Un contralor estudiantil es un estudiante designado o elegido para supervisar y fiscalizar aspectos específicos dentro de una institución educativa. Desempeña un papel crucial en garantizar la integridad financiera y administrativa dentro de la comunidad estudiantil, protegiendo los intereses y derechos de los estudiantes en el ámbito escolar. Sus funciones principales suelen incluir:</p>
+                <ul>
+                    <li>Supervisión de Finanzas: Revisar y controlar el manejo de los fondos y recursos financieros destinados a actividades estudiantiles o a la gestión escolar en general.</li>
+                    <li>Transparencia y Rendición de Cuentas: Asegurarse de que las decisiones administrativas y financieras sean transparentes y estén alineadas con los intereses de los estudiantes.</li>
+                    <li>Auditoría y Control Interno: Realizar auditorías internas para verificar el uso adecuado de los recursos y la ejecución correcta de los procedimientos establecidos.</li>
+                    <li>Representación Estudiantil: Actuar como voz de los estudiantes ante la administración escolar, transmitiendo preocupaciones, necesidades y sugerencias.</li>
+                    <li>Promoción de la Ética y la Responsabilidad: Fomentar prácticas éticas en el manejo de recursos y asegurar que todas las acciones se realicen de manera responsable y conforme a las normativas establecidas.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <div class="titulo" onclick="toggleInformacion('cabildante')">
+                <h2>¿Qué es un Cabildante?</h2>
+                <img id="icono-cabildante" src="./images/low-vision.svg" alt="Ícono de baja visión">
+            </div>
+            <div id="contenido-cabildante" class="contenido">
+                <p>Un cabildante estudiantil es una persona que representa los intereses y derechos de los estudiantes dentro de una institución educativa, típicamente a nivel de educación secundaria o superior. Los cabildantes estudiantiles desempeñan un papel crucial como representantes democráticos de los intereses estudiantiles, trabajando para mejorar la calidad de vida y el ambiente educativo dentro de su institución. Sus funciones principales suelen incluir:</p>
+                <ul>
+                    <li>Representación: Actúan como voceros de los estudiantes ante las autoridades escolares y otras instancias relevantes.</li>
+                    <li>Defensa de derechos: Se encargan de asegurar que los derechos de los estudiantes sean respetados y promueven condiciones equitativas dentro del entorno educativo.</li>
+                    <li>Participación: Fomentan la participación activa de los estudiantes en la vida escolar y en la toma de decisiones que afecten a la comunidad estudiantil.</li>
+                    <li>Promoción de iniciativas: Impulsan proyectos y actividades que beneficien a los estudiantes, como eventos culturales, deportivos, educativos, entre otros.</li>
+                    <li>Mediación: Pueden servir como mediadores en conflictos entre estudiantes, promoviendo un ambiente de convivencia pacífica y respetuosa.</li>
+                    <li>Canalización de preocupaciones: Reciben y canalizan las inquietudes y problemas de los estudiantes hacia las autoridades pertinentes para su atención y resolución.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <div class="titulo" onclick="toggleInformacion('representanteDeGrado')">
+                <h2>¿Qué es un Representante de Grado?</h2>
+                <img id="icono-representanteDeGrado" src="./images/low-vision.svg" alt="Ícono de baja visión">
+            </div>
+            <div id="contenido-representanteDeGrado" class="contenido">
+                <p>Un representante de grado es un estudiante elegido por sus compañeros para actuar como un enlace entre los estudiantes de su grado y la administración escolar...</p>
+                <ul>
+                    <li>Comunicación: Transmitir información relevante de la administración a sus compañeros y viceversa.</li>
+                    <li>Organización: Ayudar a organizar eventos, actividades extracurriculares o proyectos que involucren a todo el grado.</li>
+                    <li>Resolución de problemas: Servir como mediador en conflictos entre estudiantes o entre estudiantes y profesores.</li>
+                    <li>Representación: Expresar las preocupaciones, ideas y sugerencias de sus compañeros ante la administración escolar.</li>
+                    <li>Promoción del espíritu escolar: Fomentar el sentido de comunidad y el espíritu de equipo dentro del grado.</li>
+                    <li>Colaboración: Trabajar en conjunto con otros representantes de grados, así como con otras autoridades estudiantiles (como el consejo estudiantil) para mejorar la experiencia escolar general.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importación de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9LkYWNktwpOLrATryfKOU3dVZWI-VWkE",
+            authDomain: "proyecto-mir-db203.firebaseapp.com",
+            projectId: "proyecto-mir-db203",
+            storageBucket: "proyecto-mir-db203.appspot.com",
+            messagingSenderId: "1013415756822",
+            appId: "1:1013415756822:web:6ff4fcf3d9dc0eb7afe137",
+            measurementId: "G-GVSMEZW4FK"
+        };
+
+        // Inicializar Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Comprobar si el usuario está autenticado
+        auth.onAuthStateChanged((user) => {
+            const authButtons = document.getElementById('auth-buttons');
+            if (user) {
+                // Ocultar los botones si el usuario ha iniciado sesión
+                authButtons.style.display = 'none';
+            } else {
+                // Mostrar los botones si no ha iniciado sesión
+                authButtons.style.display = 'block';
+            }
+        });
+    </script>
+
+    <script>
+        // Función para mostrar/ocultar contenido al hacer clic en los títulos
+        function toggleInformacion(cargo) {
+            const contenido = document.getElementById(`contenido-${cargo}`);
+            const icono = document.getElementById(`icono-${cargo}`);
+
+            if (contenido.classList.contains('visible')) {
+                contenido.classList.remove('visible');
+                icono.src = './images/low-vision.svg';
+            } else {
+                contenido.classList.add('visible');
+                icono.src = './images/bullseye.svg';
+            }
+        }
+    </script>
+</body>
+
+</html>

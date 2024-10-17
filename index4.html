@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil y Propuestas</title>
+    <link rel="shortcut icon" href="./images/Favicon.jpg" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #ffffff; /* Color de fondo blanco */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .perfil-container {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .perfil-imagen {
+            flex-basis: 40%;
+        }
+
+        .perfil-imagen img {
+            width: 100%;
+            display: block;
+        }
+
+        .perfil-datos {
+            flex-basis: 60%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .perfil-datos h2 {
+            font-family: 'Abadi', sans-serif; /* Cambio de tipo de letra */
+            margin-bottom: 10px;
+        }
+
+        .propuestas-container {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f0f0; /* Color de fondo gris claro */
+            border-radius: 10px;
+            display: none; /* Inicialmente oculto */
+        }
+
+        .nueva-propuesta {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffffff; /* Color de fondo blanco */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .propuesta {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffffff; /* Color de fondo blanco */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .propuesta-nombre {
+            flex-grow: 1;
+        }
+
+        .iconos {
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .iconos img {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-propuesta {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffffff; /* Color de fondo blanco */
+        }
+
+        .form-propuesta.visible {
+            display: block;
+        }
+
+        .criterios-container {
+            margin-top: 10px;
+        }
+
+        .criterio {
+            margin-top: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffffff; /* Color de fondo blanco */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .criterio input {
+            flex-grow: 1;
+        }
+
+        .criterio button {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .criterio button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a href="menu.html">Menu de Monitoreo</a>
+        <a href="index3.html">¿Qué es MIR?</a>
+        <a href="index2.html">Postúlate</a>
+    </div>
+
+    <div class="perfil-container">
+        <div class="perfil-imagen">
+            <img src="./images/Personero.jpg" alt="Foto de perfil">
+        </div>
+        <div class="perfil-datos">
+            <h2>Lucas Simón Giraldo Méndez</h2>
+            <p>17 años</p>
+            <p>Cargo: Personero Estudiantil</p>
+            <p>Grado once - Curso 1104</p>
+        </div>
+    </div>
+
+    <div class="propuestas-container" id="propuestas-container">
+        <!-- Aquí se agregarán las propuestas dinámicamente -->
+    </div>
+
+    <div class="nueva-propuesta">
+        <h2>Nueva Propuesta</h2>
+        <div class="iconos" onclick="toggleFormulario()">
+            <img id="icono-propuesta" src="./images/plus.svg" alt="Agregar Propuesta">
+        </div>
+        <div class="form-propuesta" id="formulario-propuesta">
+            <form id="form-agregar-propuesta">
+                <label for="nombre-propuesta">Nombre de la propuesta:</label><br>
+                <input type="text" id="nombre-propuesta" name="nombre-propuesta" required><br><br>
+                
+                <label for="marco-teorico">Marco teórico o explicativo:</label><br>
+                <textarea id="marco-teorico" name="marco-teorico" rows="4" required></textarea><br><br>
+                
+                <label for="evidencia-fotografica">Evidencia fotográfica:</label><br>
+                <input type="file" id="evidencia-fotografica" name="evidencia-fotografica"><br><br>
+                
+                <label for="metas">Metas y plazos:</label><br>
+                <textarea id="metas" name="metas" rows="2" required></textarea><br><br>
+                
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let totalCriterios = 6; // Número máximo de criterios
+
+        function toggleFormulario() {
+            const formulario = document.getElementById('formulario-propuesta');
+            const icono = document.getElementById('icono-propuesta');
+            const container = document.getElementById('propuestas-container');
+
+            if (formulario.classList.contains('visible')) {
+                formulario.classList.remove('visible');
+                icono.src = './images/plus.svg';
+            } else {
+                formulario.classList.add('visible');
+                icono.src = './images/minus.svg';
+            }
+
+            // Mostrar contenedor de propuestas si hay al menos una propuesta
+            if (container.children.length > 0) {
+                container.style.display = 'block';
+            }
+        }
+
+        document.getElementById('form-agregar-propuesta').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombrePropuesta = document.getElementById('nombre-propuesta').value;
+            // Puedes obtener los otros campos del formulario de manera similar
+            
+            // Crear elemento de propuesta
+            const propuestaElement = document.createElement('div');
+            propuestaElement.classList.add('propuesta');
+            
+            const nombreElement = document.createElement('div');
+            nombreElement.classList.add('propuesta-nombre');
+            nombreElement.textContent = nombrePropuesta;
+            
+            const iconosElement = document.createElement('div');
+            iconosElement.classList.add('iconos');
+            
+            const iconoVisible = document.createElement('img');
+            iconoVisible.src = './images/low-vision.svg';
+            iconoVisible.alt = 'Icono visible';
+            iconoVisible.addEventListener('click', function () {
+                toggleInformacion(propuestaElement);
+            });
+            
+            const iconoOculto = document.createElement('img');
+            iconoOculto.src = './images/bullseye.svg';
+            iconoOculto.alt = 'Icono oculto';
+            iconoOculto.style.display = 'none';
+            iconoOculto.addEventListener('click', function () {
+                toggleInformacion(propuestaElement);
+            });
+            
+            iconosElement.appendChild(iconoVisible);
+            iconosElement.appendChild(iconoOculto);
+            
+            propuestaElement.appendChild(nombreElement);
+            propuestaElement.appendChild(iconosElement);
+            
+            // Crear contenedor de criterios
+            const criteriosContainer = document.createElement('div');
+            criteriosContainer.classList.add('criterios-container');
+            
+            // Crear botón para agregar criterios
+            const agregarCriterioButton = document.createElement('button');
+            agregarCriterioButton.type = 'button';
+            agregarCriterioButton.textContent = 'Agregar Paso';
+            agregarCriterioButton.addEventListener('click', function () {
+                agregarCriterio(criteriosContainer, totalCriterios);
+            });
+            
+            propuestaElement.appendChild(criteriosContainer);
+            propuestaElement.appendChild(agregarCriterioButton);
+            
+            // Agregar propuesta al contenedor de propuestas
+            const propuestasContainer = document.getElementById('propuestas-container');
+            propuestasContainer.appendChild(propuestaElement);
+            
+            // Mostrar contenedor de propuestas
+            propuestasContainer.style.display = 'block';
+            
+            // Limpiar formulario
+            document.getElementById('form-agregar-propuesta').reset();
+            const formulario = document.getElementById('formulario-propuesta');
+            formulario.classList.remove('visible');
+            const icono = document.getElementById('icono-propuesta');
+            icono.src = './images/plus.svg';
+        });
+
+        function agregarCriterio(criteriosContainer, maxCriterios) {
+            if (criteriosContainer.children.length < maxCriterios) {
+                const criterioElement = document.createElement('div');
+                criterioElement.classList.add('criterio');
+                
+                const inputElement = document.createElement('input');
+                inputElement.type = 'text';
+                inputElement.placeholder = 'Descripción del paso';
+                criterioElement.appendChild(inputElement);
+
+                const eliminarButton = document.createElement('button');
+                eliminarButton.textContent = 'Eliminar';
+                eliminarButton.addEventListener('click', function () {
+                    criterioElement.remove();
+                    actualizarPorcentaje(criteriosContainer);
+                });
+
+                criterioElement.appendChild(eliminarButton);
+                criteriosContainer.appendChild(criterioElement);
+            }
+            
+            actualizarPorcentaje(criteriosContainer);
+        }
+
+        function actualizarPorcentaje(criteriosContainer) {
+            const completed = criteriosContainer.children.length;
+            const percentage = (completed / totalCriterios) * 100;
+            
+            let porcentajeElement = criteriosContainer.querySelector('.porcentaje');
+            if (!porcentajeElement) {
+                porcentajeElement = document.createElement('div');
+                porcentajeElement.classList.add('porcentaje');
+                criteriosContainer.appendChild(porcentajeElement);
+            }
+            
+            porcentajeElement.textContent = `Criterios completados: ${completed} de ${totalCriterios} (${percentage.toFixed(2)}%)`;
+        }
+
+        function toggleInformacion(propuestaElement) {
+            const iconoVisible = propuestaElement.querySelector('img[alt="Icono visible"]');
+            const iconoOculto = propuestaElement.querySelector('img[alt="Icono oculto"]');
+            
+            if (iconoVisible.style.display !== 'none') {
+                iconoVisible.style.display = 'none';
+                iconoOculto.style.display = 'inline';
+                // Aquí ocultar detalles de la propuesta
+            } else {
+                iconoVisible.style.display = 'inline';
+                iconoOculto.style.display = 'none';
+                // Aquí mostrar detalles de la propuesta
+            }
+        }
+    </script>
+</body>
+
+</html>

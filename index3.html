@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postulación a Cargos Estudiantiles</title>
+    <link rel="shortcut icon" href="./images/Favicon.jpg" type="image/x-icon">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('./images/fondoindex2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .registro-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .registro-container h1 {
+            margin-bottom: 1em;
+        }
+
+        .registro-container div {
+            margin-bottom: 1em;
+        }
+
+        .registro-container label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .registro-container input,
+        .registro-container textarea,
+        .registro-container select {
+            width: 100%;
+            padding: 0.5em;
+            box-sizing: border-box;
+        }
+
+        .registro-container button {
+            padding: 0.5em 1em;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .registro-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script type="module" src="firebaseconect.js"></script>
+    <script type="module" src="chocochoco.js"></script>
+</head>
+
+<body>
+    <div class="registro-container">
+        <h1>Registro para Postulación a Cargos Estudiantiles</h1>
+        <form id="registro-form">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="grado-curso">Grado y Curso:</label>
+                <input type="text" id="grado-curso" name="grado-curso" required>
+            </div>
+            <div>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="0" required>
+            </div>
+            <div>
+                <label for="correo-estudiantil">Correo Estudiantil:</label>
+                <input type="email" id="correo-estudiantil" name="correo-estudiantil" required>
+            </div>
+            <div>
+                <label for="cargo">Cargo al que desea postularse:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="">Seleccione un cargo...</option>
+                    <option value="personero">Personero</option>
+                    <option value="contralor">Contralor</option>
+                    <option value="cabildante">Cabildante</option>
+                    <option value="representante">Representante de Grado</option>
+                </select>
+            </div>
+            <div id="requisitos-personero" style="display: none;">
+                <p>Requisitos para Personero: Debe cursar grado 11 (curso entre 1100 y 1106).</p>
+            </div>
+            <div id="requisitos-contralor" style="display: none;">
+                <p>Requisitos para Contralor: Debe cursar grado 9 o 10 (curso entre 900 y 1006).</p>
+            </div>
+            <div>
+                <label for="motivacion">Motivación y Propuestas:</label>
+                <textarea id="motivacion" name="motivacion" rows="4" required></textarea>
+            </div>
+            <button type="submit">Enviar Postulación</button>
+        </form>
+    </div>
+
+    <script>
+    const nombre = document.getElementById('nombre').value;
+    const gradoCurso = document.getElementById('grado-curso').value;
+    const edad = document.getElementById('edad').value;
+    const correoEstudiantil = document.getElementById('correo-estudiantil').value;
+    const cargo = document.getElementById('cargo').value;
+    const motivacion = document.getElementById('motivacion').value;
+
+    // Aquí puedes agregar la lógica que quieras para manejar los datos del formulario
+    console.log({
+        nombre: nombre,
+        gradoCurso: gradoCurso,
+        edad: edad,
+        correoEstudiantil: correoEstudiantil,
+        cargo: cargo,
+        motivacion: motivacion
+    });
